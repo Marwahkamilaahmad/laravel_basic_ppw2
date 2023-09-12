@@ -11,6 +11,11 @@ class UserController extends Controller
 {
     public function index()
     {
+        $users = User::where('name','john')->get();
+
+
+
+
         $data = User::latest()->get();
         return response()->json([UserResources::collection($data), 'Programs fetched.']);
     }

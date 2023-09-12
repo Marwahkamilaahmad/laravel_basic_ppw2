@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 Use App\Http\Controllers\Response;
-
+use App\Models\User;
+Use Illuminate\Support\Facades\DB;
 class TransactionController extends Controller
 {
     /**
@@ -14,6 +15,12 @@ class TransactionController extends Controller
      */
     public function index()
     {
+        User::create([
+            'name' => 'rua'
+        ]);
+
+
+
         $transaction = Transaction::orderBy('time', 'DESC')->get();
         $response = [
             'message' => 'list transaction order by time',
@@ -29,7 +36,7 @@ class TransactionController extends Controller
      */
     public function create()
     {
-        
+
     }
 
     /**
